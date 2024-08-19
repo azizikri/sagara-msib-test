@@ -1,0 +1,7 @@
+app:
+  port: 8080
+database:
+  driver: "postgres"
+  url: "host=localhost user=postgres password=root dbname=sagara-msib-test port=5432 sslmode=disable TimeZone=Asia/Jakarta"
+  # driver: "sqlite"
+  # url: "cloth.db"

@@ -1,0 +1,262 @@
+{
+    "info": {
+        "_postman_id": "812f0f8d-d880-442f-9199-731665d587cf",
+        "name": "sagara-test-msib",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "GetClothes",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes",
+                    "query": [
+                        {
+                            "key": "pageSize",
+                            "value": "2",
+                            "disabled": true
+                        },
+                        {
+                            "key": "page",
+                            "value": "1",
+                            "disabled": true
+                        },
+                        {
+                            "key": "color",
+                            "value": "Blue",
+                            "disabled": true
+                        },
+                        {
+                            "key": "size",
+                            "value": "M",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "clothes"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "GetCloth",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/5",
+                    "path": [
+                        "clothes",
+                        "5"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "CreateCloth",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes",
+                    "path": [
+                        "clothes"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"color\": \"Blue\",\n  \"size\": \"Z\",\n  \"price\": 10000,\n  \"stock\": 10\n}"
+                }
+            }
+        },
+        {
+            "name": "UpdateCloth",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/5",
+                    "path": [
+                        "clothes",
+                        "5"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"color\": \"Blue\",\n  \"size\": \"L\",\n  \"price\": 10000,\n  \"stock\": 0\n}"
+                }
+            }
+        },
+        {
+            "name": "DeleteCloth",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/4",
+                    "path": [
+                        "clothes",
+                        "4"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "FindLowStockClothes",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/low-stock?color=Blue&size",
+                    "query": [
+                        {
+                            "key": "color",
+                            "value": "Blue"
+                        },
+                        {
+                            "key": "size",
+                            "value": ""
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "clothes",
+                        "low-stock"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "OutOfStockClothes",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/out-of-stock?color&size",
+                    "query": [
+                        {
+                            "key": "color",
+                            "value": ""
+                        },
+                        {
+                            "key": "size",
+                            "value": ""
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "clothes",
+                        "out-of-stock"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "IncrementStock",
+            "request": {
+                "method": "PATCH",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/5/increment",
+                    "path": [
+                        "clothes",
+                        "5",
+                        "increment"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        },
+        {
+            "name": "DecrementStock",
+            "request": {
+                "method": "PATCH",
+                "url": {
+                    "raw": "http://127.0.0.1:8080/clothes/5/decrement",
+                    "path": [
+                        "clothes",
+                        "5",
+                        "decrement"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8080"
+                }
+            }
+        }
+    ]
+}
