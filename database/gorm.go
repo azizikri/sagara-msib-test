@@ -19,20 +19,6 @@ func InitDatabase(driver, url string) {
 		if err != nil {
 			log.Fatalf("Failed to connect to PostgreSQL database: %v", err)
 		}
-
-		// Initialize PostgreSQL enum type if it does not exist
-		err = DB.Exec(`
-			DO $$
-			BEGIN
-				IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'size') THEN
-					CREATE TYPE size AS ENUM ('S', 'M', 'L');
-				END IF;
-			END $$;
-		`).Error
-		if err != nil {
-			log.Fatalf("Failed to create PostgreSQL enum type: %v", err)
-		}
-
 	case "sqlite":
 		DB, err = gorm.Open(sqlite.Open(url), &gorm.Config{})
 		if err != nil {
